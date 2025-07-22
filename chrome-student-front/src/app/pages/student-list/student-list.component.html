@@ -1,0 +1,80 @@
+<div class="p-6 max-w-5xl mx-auto text-gray-800">
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-2xl font-bold tracking-tight">
+      Lista de Alunos
+    </h2>
+
+    <div class="sm:w-auto w-full flex gap-2">
+      <a routerLink="/chat"
+        class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white text-sm font-semibold py-2 px-3 rounded-md shadow-xs transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M7 8h10M7 12h6m-6 4h10M5 6h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z" />
+        </svg>
+        Ir para o Chat
+      </a>
+
+      <a routerLink="/students/new"
+        class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-3 rounded-md shadow-xs transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+            clip-rule="evenodd" />
+        </svg>
+        Novo Aluno
+      </a>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto bg-white rounded-lg shadow-sm">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-50 text-sm text-gray-600 uppercase">
+        <tr>
+          <th scope="col" class="px-6 py-3 text-left font-medium">Nome</th>
+
+          <th scope="col" class="px-6 py-3 text-left font-medium">Email</th>
+
+          <th scope="col" class="px-10 py-3 text-right font-medium">Ações</th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-y divide-gray-100 text-sm">
+        <tr *ngFor="let student of students" class="hover:bg-gray-50">
+          <td class="px-6 py-3 whitespace-nowrap">
+            {{ student.name }}
+          </td>
+
+          <td class="px-6 py-3 whitespace-nowrap">
+            {{ student.email }}
+          </td>
+
+          <td class="px-6 py-3 whitespace-nowrap text-center">
+            <div class="flex justify-end items-center gap-2">
+              <button (click)="editStudent(student.id)"
+                class="p-2 rounded-full hover:bg-blue-100 text-blue-600 transition" title="Editar"
+                aria-label="Editar aluno">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 20h9" />
+
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16.5 3.5a2.121 2.121 0 113 3L7 19l-4 1 1-4 12.5-12.5z" />
+                </svg>
+              </button>
+
+              <button *ngIf="student.id !== currentUserId" (click)="deleteStudent(student.id)"
+                class="p-2 rounded-full hover:bg-red-100 text-red-600 transition" title="Excluir"
+                aria-label="Excluir aluno">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

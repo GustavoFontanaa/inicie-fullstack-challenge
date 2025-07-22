@@ -1,0 +1,45 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+  <div class="max-w-md w-full bg-white p-8 shadow-md rounded-sm">
+    <h2 class="text-2xl font-semibold mb-6 text-center text-gray-800">
+      Login
+    </h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="mb-4">
+        <label for="email" class="block mb-1 text-sm font-medium">
+          Email
+        </label>
+
+        <input id="email" type="email" formControlName="email"
+          class="w-auto sm:w-full border border-gray-300 rounded-sm px-3 py-2" />
+
+        <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-sm text-red-600 mt-1">
+          Email inválido ou obrigatório.
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="password" class="block mb-1 text-sm font-medium">
+          Senha
+        </label>
+
+        <input id="password" type="password" formControlName="password"
+          class="w-auto sm:w-full border border-gray-300 rounded-sm px-3 py-2" />
+
+        <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="text-sm text-red-600 mt-1">
+          Senha obrigatória.
+        </div>
+      </div>
+
+      <button type="submit"
+        class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded transition disabled:opacity-50"
+        [disabled]="form.invalid">
+        Entrar
+      </button>
+
+      <div *ngIf="errorMessage" class="mt-4 text-red-600 text-center font-medium">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
+</div>
