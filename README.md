@@ -28,7 +28,8 @@ php artisan key:generate
 php artisan migrate
 php artisan serve
 ```
-Ao rodar ```php artisan migrate``` se não pedir para criar database.sqlite, criar de forma manual dentro da pasta database e então rodar ```php artisan migrate```.
+
+Ao rodar `php artisan migrate` se não pedir para criar database.sqlite, criar de forma manual dentro da pasta database e então rodar `php artisan migrate`.
 
 ### Frontend - Angular
 
@@ -45,11 +46,22 @@ node server.js
 ```
 
 ### Credenciais de acesso
+
 ```bash
 Email: admin@admin.com
 Senha: admin123
 ```
 
 ### Primeiro acesso
+
 Ao fazer login pela primeira vez com um usuário novo, o sistema exigirá a redefinição de senha.
 Basta tentar fazer login com o novo usuário que será redirecionado para redefinir a senha.
+
+### Adicionar extensão ao Chrome
+
+Para utilizar a extensão do Chrome, siga os passos abaixo:
+
+1. Abra o navegador Chrome e acesse: `chrome://extensions/`
+2. Ative o **Modo do desenvolvedor** (Developer mode) no canto superior direito.
+3. Clique em **"Carregar sem compactação"** (Load unpacked).
+4. Selecione a pasta `chrome-extension/` localizada dentro do repositório do `frontend`.
