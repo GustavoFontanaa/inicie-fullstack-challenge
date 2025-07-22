@@ -28,6 +28,7 @@ php artisan key:generate
 php artisan migrate
 php artisan serve
 ```
+Ao rodar ```php artisan migrate``` se não pedir para criar database.sqlite, criar de forma manual dentro da pasta database e então rodar ```php artisan migrate```.
 
 ### Frontend - Angular
 
